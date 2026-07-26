@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RND Financing — SR&amp;ED financing for Canadian innovators</title>
+<meta name="description" content="RND Financing advances capital against accrued SR&ED claims, so Canadian companies can keep building while the CRA processes their refund. Non-dilutive, transparent, fast.">
+<meta property="og:title" content="RND Financing — SR&ED financing for Canadian innovators">
+<meta property="og:description" content="Your SR&ED refund, months early. Non-dilutive capital advanced against accrued claims.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rndfinancing.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canvas:#f6f8fa; --ink:#0a2540; --ink-60:#425466; --ink-40:#697386;
+    --accent:#2f6fed; --accent-deep:#1e5cd6; --green:#0e9f6e;
+    --line:#e3e8ee; --white:#ffffff;
+    --shadow:0 6px 24px rgba(10,37,64,.06); --shadow-lg:0 12px 40px rgba(10,37,64,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--canvas);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .wordmark{font-weight:800;font-size:17px;letter-spacing:-.02em;text-decoration:none;}
+  .wordmark span{color:var(--accent);}
+  .nav-links{display:flex;gap:30px;font-size:14.5px;font-weight:500;color:var(--ink-60);}
+  .nav-links a{text-decoration:none;transition:color .15s;}
+  .nav-links a:hover{color:var(--ink);}
+  .btn{display:inline-block;font-weight:650;font-size:15px;text-decoration:none;border-radius:8px;padding:11px 20px;transition:background .15s,color .15s,border-color .15s;}
+  .btn-solid{background:var(--accent);color:#fff;}
+  .btn-solid:hover{background:var(--accent-deep);}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--white);}
+  .btn-ghost:hover{border-color:var(--ink-40);}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;background:var(--white);border-bottom:1px solid var(--line);overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:26px 26px;opacity:.5;pointer-events:none;}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center;padding-top:104px;padding-bottom:112px;}
+  .eyebrow{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+  h1{font-size:54px;line-height:1.06;letter-spacing:-.035em;font-weight:800;max-width:520px;}
+  .hero p{margin:22px 0 34px;font-size:18px;color:var(--ink-60);max-width:460px;}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* facility card — product UI as hero image */
+  .facility{background:var(--white);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden;animation:settle .5s ease both;}
+  @keyframes settle{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @media(prefers-reduced-motion:reduce){.facility{animation:none;}}
+  .fac-head{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line);}
+  .fac-head .t{font-size:13.5px;font-weight:650;color:var(--ink-60);}
+  .pill{font-size:11.5px;font-weight:650;letter-spacing:.04em;color:var(--green);background:rgba(14,159,110,.09);border:1px solid rgba(14,159,110,.25);border-radius:999px;padding:4px 10px;}
+  .fac-body{padding:10px 22px 6px;}
+  .fac-row{display:flex;align-items:baseline;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);}
+  .fac-row:last-child{border-bottom:none;}
+  .fac-row .k{font-size:13.5px;color:var(--ink-40);}
+  .fac-row .v{font-size:15.5px;font-weight:650;font-variant-numeric:tabular-nums;}
+  .fac-row .v.big{font-size:22px;letter-spacing:-.02em;}
+  .fac-row .v.green{color:var(--green);}
+  .fac-foot{padding:14px 22px;background:var(--canvas);border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-40);}
+
+  /* ---------- proof bar ---------- */
+  .proof{border-bottom:1px solid var(--line);background:var(--white);}
+  .proof .wrap{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:24px;padding:26px 32px;}
+  .pf b{font-size:20px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .pf span{display:block;font-size:12.5px;color:var(--ink-40);margin-top:2px;}
+
+  /* ---------- sections ---------- */
+  section{padding:112px 0;}
+  .kicker{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  h2{font-size:36px;letter-spacing:-.03em;font-weight:800;line-height:1.15;}
+  .sub{margin-top:14px;font-size:17px;color:var(--ink-60);max-width:560px;}
+
+  /* how it works — editorial list, not cards */
+  .steps{margin-top:64px;border-top:1px solid var(--line);}
+  .step{display:grid;grid-template-columns:110px 1fr 1fr;gap:32px;padding:36px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .step .n{font-size:15px;font-weight:650;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .step h3{font-size:20px;font-weight:650;letter-spacing:-.015em;}
+  .step .d{font-size:15.5px;color:var(--ink-60);}
+  .step .meta{font-size:13.5px;color:var(--ink-40);text-align:right;}
+
+  /* consultants — the one dark section */
+  .dark{background:var(--ink);color:#fff;}
+  .dark .kicker{color:#7da7ff;}
+  .dark h2{color:#fff;}
+  .dark .sub{color:#a3b2c7;}
+  .dark .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .terms{border-top:1px solid rgba(255,255,255,.14);margin-top:8px;}
+  .term{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14);}
+  .term b{display:block;font-size:16px;font-weight:650;margin-bottom:4px;}
+  .term p{font-size:14.5px;color:#a3b2c7;}
+  .dark .btn-solid{margin-top:28px;}
+
+  /* vancouver banner */
+  .van{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .van .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:36px 32px;flex-wrap:wrap;}
+  .van b{font-size:19px;font-weight:650;letter-spacing:-.015em;}
+  .van span{color:var(--ink-60);font-size:15px;}
+
+  /* faq */
+  .faq{max-width:760px;margin:56px auto 0;}
+  details{border-bottom:1px solid var(--line);}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:22px 4px;font-size:16.5px;font-weight:650;letter-spacing:-.01em;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-weight:400;font-size:22px;color:var(--ink-40);transition:transform .15s;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{padding:0 4px 22px;color:var(--ink-60);font-size:15.5px;max-width:640px;}
+
+  /* footer */
+  footer{background:var(--white);border-top:1px solid var(--line);padding:64px 0 40px;}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+  .foot .wordmark{font-size:16px;}
+  .foot p{font-size:13.5px;color:var(--ink-40);margin-top:12px;max-width:280px;}
+  .fcol b{display:block;font-size:13px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-40);margin-bottom:14px;}
+  .fcol a{display:block;font-size:14.5px;color:var(--ink-60);text-decoration:none;padding:5px 0;}
+  .fcol a:hover{color:var(--ink);}
+  .legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-40);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:48px;padding-top:64px;padding-bottom:72px;}
+    h1{font-size:38px;}
+    .proof .wrap{grid-template-columns:1fr 1fr;justify-content:start;}
+    .step{grid-template-columns:56px 1fr;}
+    .step .meta{display:none;}
+    .dark .wrap{grid-template-columns:1fr;gap:48px;}
+    .foot{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#">RND<span>&nbsp;Financing</span></a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#consultants">For consultants</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:james@rndfinancing.com">Contact</a>
+    </nav>
+    <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=Advance%20estimate">Get an estimate</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">SR&amp;ED Financing · Canada</div>
+      <h1>Your SR&amp;ED refund, months early.</h1>
+      <p>RND Financing advances capital against accrued SR&amp;ED claims, so you can keep building while the CRA processes the paperwork. Non-dilutive. Transparent. Fast.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=Advance%20estimate">Get an estimate</a>
+        <a class="btn btn-ghost" href="#consultants">I'm a consultant</a>
+      </div>
+    </div>
+    <div class="facility" aria-label="Example facility summary">
+      <div class="fac-head"><span class="t">Facility summary</span><span class="pill">Active</span></div>
+      <div class="fac-body">
+        <div class="fac-row"><span class="k">Accrued SR&amp;ED claim</span><span class="v big" data-placeholder>$412,500</span></div>
+        <div class="fac-row"><span class="k">Advance rate</span><span class="v" data-placeholder>75%</span></div>
+        <div class="fac-row"><span class="k">Available today</span><span class="v green" data-placeholder>$309,375</span></div>
+        <div class="fac-row"><span class="k">Repayment source</span><span class="v">CRA refund</span></div>
+        <div class="fac-row"><span class="k">Equity taken</span><span class="v">None</span></div>
+      </div>
+      <div class="fac-foot">Illustrative example. Facilities are sized against each claim individually.</div>
+    </div>
+  </div>
+</div>
+
+<div class="proof">
+  <div class="wrap">
+    <div class="pf"><b data-placeholder>Up to 75%</b><span>of accrued claim value</span></div>
+    <div class="pf"><b data-placeholder>~5 days</b><span>to indicative terms</span></div>
+    <div class="pf"><b>$0</b><span>equity or warrants</span></div>
+    <div class="pf"><b>Quarterly</b><span>drawdowns as claims accrue</span></div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>Three steps between you<br>and your R&amp;D capital.</h2>
+    <p class="sub">A lending process built around the SR&amp;ED calendar — designed with consultants, for their clients.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <div><h3>Share your claim</h3><p class="d">Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.</p></div>
+        <span class="meta">Typical effort: under 30 minutes</span>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <div><h3>Receive terms</h3><p class="d">A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.</p></div>
+        <span class="meta" data-placeholder>Indicative terms in ~5 business days</span>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <div><h3>Draw down and build</h3><p class="d">Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.</p></div>
+        <span class="meta">Repaid by the refund itself</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="consultants">
+  <div class="wrap">
+    <div>
+      <div class="kicker">For SR&amp;ED consultants</div>
+      <h2>Your clients' claims are worth more, sooner.</h2>
+      <p class="sub">We work through Canada's SR&amp;ED consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.</p>
+      <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=Consultant%20partnership">Talk to us about partnering</a>
+    </div>
+    <div class="terms">
+      <div class="term"><b>We fund claims. We never prepare them.</b><p>Claim preparation is your business. There is no scenario where we compete with our partners.</p></div>
+      <div class="term"><b>Disclosed referral economics.</b><p>A simple arrangement, in writing, visible to everyone involved. No surprises for you or your client.</p></div>
+      <div class="term"><b>A person, not a portal.</b><p>Your clients get a direct line to underwriting and same-day answers during Canadian business hours.</p></div>
+      <div class="term"><b>Funded clients grow faster.</b><p>Clients who can spend their refund early do more R&amp;D — and file larger claims with you next year.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="van">
+  <div class="wrap">
+    <div><b>Ready to talk?</b><br><span>Reach James directly at <a href="mailto:james@rndfinancing.com" style="color:var(--accent);font-weight:650;text-decoration:none;">james@rndfinancing.com</a> — replies within one business day.</span></div>
+    <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=SR%26ED%20financing%20enquiry">Email us</a>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="kicker" style="text-align:center;">FAQ</div>
+    <h2 style="text-align:center;">Fair questions, straight answers.</h2>
+    <div class="faq">
+      <details open>
+        <summary>What exactly do you lend against?</summary>
+        <p>Accrued and filed SR&amp;ED claims — the refundable investment tax credit a company has earned through eligible R&amp;D spend. We advance a portion of the expected refund and are repaid when the CRA pays it out.</p>
+      </details>
+      <details>
+        <summary>What happens if the CRA is slow, or reduces the claim?</summary>
+        <p>CRA timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>Pricing is stated on one page in every offer: the rate, any fees, and the total cost in dollars. No sliding scales discovered after signing. <span data-placeholder>[Indicative pricing to be published.]</span></p>
+      </details>
+      <details>
+        <summary>Do you take equity, warrants, or personal guarantees?</summary>
+        <p>No equity, no warrants. Security is registered against the claim proceeds themselves. Anything beyond that is disclosed up front in the term sheet, before you commit to anything.</p>
+      </details>
+      <details>
+        <summary>I'm a consultant — how do I actually work with you?</summary>
+        <p>A short conversation, then a written referral arrangement with disclosed economics. You introduce clients who need their refund sooner; we handle the lending and keep you informed. You remain the claim expert throughout.</p>
+      </details>
+      <details>
+        <summary>Who is behind RND Financing?</summary>
+        <p>RND Financing is backed by Cashcade, an established R&amp;D lender. We're building our Canadian presence through the consultant community. Questions? Email <a href="mailto:james@rndfinancing.com">james@rndfinancing.com</a> — you'll get James, not a ticket queue.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="wordmark" href="#">RND<span>&nbsp;Financing</span></a>
+        <p>Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned.</p>
+      </div>
+      <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="mailto:james@rndfinancing.com?subject=Advance%20estimate">Get an estimate</a></div>
+      <div class="fcol"><b>Partners</b><a href="#consultants">For consultants</a><a href="mailto:james@rndfinancing.com?subject=Consultant%20partnership">Partner with us</a></div>
+      <div class="fcol"><b>Contact</b><a href="mailto:james@rndfinancing.com">james@rndfinancing.com</a><a href="https://www.rndfinancing.com">rndfinancing.com</a></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 RND Financing. Backed by Cashcade.</span>
+      <span data-placeholder>[Registered mailing address — required under CASL] · Unsubscribe requests honoured promptly.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
