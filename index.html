@@ -173,6 +173,27 @@
     .foot{grid-template-columns:1fr 1fr;}
     .nav-links{display:none;}
   }
+  /* ---------- per-country layout variants ---------- */
+  /* Australia: facility card leads, copy on the right */
+  .v-au .hero .wrap>div:first-child{order:2;}
+  .v-au .hero .wrap>.facility{order:1;}
+  .v-au .hero::before{opacity:.22;}
+  @media(max-width:900px){
+    .v-au .hero .wrap>div:first-child{order:1;}
+    .v-au .hero .wrap>.facility{order:2;}
+  }
+  /* UK: centred hero, card below; dark timing section */
+  .v-uk .hero .wrap{grid-template-columns:1fr;gap:56px;justify-items:center;text-align:center;padding-top:88px;padding-bottom:96px;}
+  .v-uk .hero h1{max-width:640px;}
+  .v-uk .hero p{max-width:540px;margin-left:auto;margin-right:auto;}
+  .v-uk .cta-row{justify-content:center;}
+  .v-uk .facility{max-width:520px;width:100%;}
+  .v-uk #timing{background:var(--ink);}
+  .v-uk #timing .kicker{color:#7da7ff;}
+  .v-uk #timing h2{color:#fff;}
+  .v-uk #timing .sub{color:#a3b2c7;}
+  .v-uk #timing .chart-hint{color:#a3b2c7;}
+
   @media(max-width:560px){
     .wordmark .wm-sub{display:none;}
     .nav-right{gap:10px;}
@@ -277,23 +298,23 @@
 <section id="how">
   <div class="wrap">
     <div class="kicker">How it works</div>
-    <h2>Three steps between you<br>and your R&amp;D capital.</h2>
+    <h2 id="t-howH2">Three steps between you<br>and your R&amp;D capital.</h2>
     <p class="sub" id="t-howSub">A lending process built around the SR&amp;ED calendar — designed with consultants, for their clients.</p>
     <div class="steps">
       <div class="step">
         <span class="n">01</span>
-        <div><h3>Share your claim</h3><p class="d" id="t-s1d">Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.</p></div>
-        <span class="meta">Typical effort: under 30 minutes</span>
+        <div><h3 id="t-s1h">Share your claim</h3><p class="d" id="t-s1d">Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.</p></div>
+        <span class="meta" id="t-s1m">Typical effort: under 30 minutes</span>
       </div>
       <div class="step">
         <span class="n">02</span>
-        <div><h3>Receive terms</h3><p class="d">A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.</p></div>
-        <span class="meta" data-placeholder>Funding within 24 hours</span>
+        <div><h3 id="t-s2h">Receive terms</h3><p class="d" id="t-s2d">A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.</p></div>
+        <span class="meta" data-placeholder id="t-s2m">Funding within 24 hours</span>
       </div>
       <div class="step">
         <span class="n">03</span>
-        <div><h3>Draw down and build</h3><p class="d" id="t-s3d">Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.</p></div>
-        <span class="meta">Repaid by the refund itself</span>
+        <div><h3 id="t-s3h">Draw down and build</h3><p class="d" id="t-s3d">Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.</p></div>
+        <span class="meta" id="t-s3m">Repaid by the refund itself</span>
       </div>
     </div>
   </div>
@@ -369,7 +390,7 @@
   <div class="wrap">
     <div>
       <div class="kicker" id="t-consKicker">For SR&amp;ED consultants</div>
-      <h2>Your clients' claims are worth more, sooner.</h2>
+      <h2 id="t-consH2">Your clients' claims are worth more, sooner.</h2>
       <p class="sub" id="t-consSub">We work through Canada's SR&amp;ED consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.</p>
       <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=Consultant%20partnership">Talk to us about partnering</a>
     </div>
@@ -392,7 +413,7 @@
 <section id="faq">
   <div class="wrap">
     <div class="kicker" style="text-align:center;">FAQ</div>
-    <h2 style="text-align:center;">Fair questions, straight answers.</h2>
+    <h2 style="text-align:center;" id="t-faqH2">Fair questions, straight answers.</h2>
     <div class="faq">
       <details open>
         <summary>What exactly do you lend against?</summary>
@@ -499,24 +520,31 @@
       faq2q: "What happens if the CRA is slow, or reduces the claim?",
       faq2a: "CRA timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
       faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Canadian presence through the consultant community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
-      footTag: "Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned."
+      footTag: "Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned.",
+      howH2: "Three steps between you<br>and your R&amp;D capital.",
+      s1h: "Share your claim", s1m: "Typical effort: under 30 minutes",
+      s2h: "Receive terms", s2d: "A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.", s2m: "Funding within 24 hours",
+      s3h: "Draw down and build", s3m: "Repaid by the refund itself",
+      consH2: "Your clients' claims are worth more, sooner.",
+      faqH2: "Fair questions, straight answers.",
+      sectionOrder: ['.proof','#how','#timing','#consultants','.van','#faq']
     },
     au: {
-      title: "R&D Financing — R&DTI financing for Australian innovators",
+      title: "R&D Financing — R&D Tax Incentive financing for Australian innovators",
       lang: "en-AU",
-      eyebrow: "R&amp;DTI Financing · Australia",
-      h1: "Your R&amp;DTI refund, months early.",
-      heroP: "R&amp;D Financing advances capital against accrued R&amp;DTI claims, so you can keep building while the ATO processes the paperwork. Non-dilutive. Transparent. Fast.",
-      claimLabel: "Accrued R&amp;DTI claim",
+      eyebrow: "R&amp;D Tax Incentive · Australia",
+      h1: "Your R&amp;DTI refund, without the wait.",
+      heroP: "The offset accrues all year — your cash shouldn't arrive a year later. We advance your accruing R&amp;D Tax Incentive refund with monthly drawdowns, repaid when the ATO pays. No equity, no warrants.",
+      claimLabel: "Accrued R&amp;DTI offset",
       claimVal: "$435,000",
       availVal: "$348,000",
       repaySrc: "ATO refund",
       pf3b: "$0",
       howSub: "A lending process built around the R&amp;DTI calendar — designed with consultants, for their clients.",
-      s1d: "Send your current or accruing R&amp;DTI claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.",
-      s3d: "Take funds as the claim accrues. When the ATO pays the refund, the refund clears the facility. That's the whole model.",
-      timingH2: "Cash on day one,<br>not month fifteen.",
-      timingSub: "The ATO pays a typical claim around 15 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.",
+      s1d: "Send your current or accruing R&amp;DTI claim details — or have your consultant do it for you. Minutes, not meetings.",
+      s3d: "Take funds as the offset accrues through the year. When the ATO refund lands, it clears the facility. That's the whole model.",
+      timingH2: "The offset accrues all year.<br>Your cash should too.",
+      timingSub: "Registration, lodgment, processing — a typical refund still lands around 15 months after the R&amp;D spend starts. Draw against the offset monthly instead, and put it to work now.",
       legend2: "ATO alone",
       y1: "$435,000", y2: "$348,000", y3: "$217,500", y4: "$0",
       m2l: "Month 12", m2s: "Income year ends",
@@ -531,24 +559,31 @@
       faq2q: "What happens if the ATO reviews the claim, or reduces it?",
       faq2a: "Timing risk is low in Australia — once the return is lodged, the ATO typically pays within a few weeks. Eligibility risk is ours to manage: the regime is self-assessed with a later review window, so facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
       faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Australian presence through the consultant community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
-      footTag: "Capital for Australian innovators, advanced against the R&amp;DTI refunds they've already earned."
+      footTag: "Capital for Australian innovators, advanced against the R&amp;DTI refunds they've already earned.",
+      howH2: "The process,<br>in three moves.",
+      s1h: "Show us the claim", s1m: "Typical effort: under 30 minutes",
+      s2h: "Get terms", s2d: "A facility offer against your expected offset, every cost on one page. What you see is what you pay.", s2m: "Funding within 24 hours",
+      s3h: "Draw down monthly", s3m: "Repaid by the ATO refund",
+      consH2: "Your clients' offsets are worth more, sooner.",
+      faqH2: "Straight answers, no fine print.",
+      sectionOrder: ['.proof','#timing','#consultants','#how','.van','#faq']
     },
     uk: {
       title: "R&D Financing — R&D tax credit financing for UK innovators",
       lang: "en-GB",
-      eyebrow: "R&amp;D Tax Relief Financing · United Kingdom",
-      h1: "Your R&amp;D tax credit, months early.",
-      heroP: "R&amp;D Financing advances capital against accrued R&amp;D tax relief claims, so you can keep building while HMRC processes the paperwork. Non-dilutive. Transparent. Fast.",
+      eyebrow: "R&amp;D Tax Relief · United Kingdom",
+      h1: "The money your R&amp;D has already earned.",
+      heroP: "We advance capital against your accrued R&amp;D tax relief claim — merged scheme or ERIS — so the work funds itself while HMRC does the paperwork. Non-dilutive, with every cost stated up front.",
       claimLabel: "Accrued R&amp;D claim",
       claimVal: "£270,000",
       availVal: "£216,000",
       repaySrc: "HMRC payment",
       pf3b: "£0",
       howSub: "A lending process built around the R&amp;D tax relief calendar — designed with advisers, for their clients.",
-      s1d: "Send your current or accruing R&amp;D claim details. Your adviser can do it on your behalf — it takes minutes, not meetings.",
+      s1d: "Share your current or accruing R&amp;D claim details. Your adviser can do it on your behalf — it takes minutes, not meetings.",
       s3d: "Take funds as the claim accrues. When HMRC pays the credit, the payment clears the facility. That's the whole model.",
-      timingH2: "Cash on day one,<br>not month seventeen.",
-      timingSub: "HMRC pays a typical claim around 17 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.",
+      timingH2: "HMRC pays in forty days.<br>The wait is the other sixteen months.",
+      timingSub: "Your accounting year has to close, then the claim has to be prepared and filed — payment typically lands around 17 months after the R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while the work is still happening.",
       legend2: "HMRC alone",
       y1: "£270,000", y2: "£216,000", y3: "£135,000", y4: "£0",
       m2l: "Month 12", m2s: "Accounting year ends",
@@ -563,7 +598,14 @@
       faq2q: "What happens if HMRC is slow, or opens an enquiry?",
       faq2a: "HMRC timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that an enquiry or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
       faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our UK presence through the adviser community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
-      footTag: "Capital for UK innovators, advanced against the R&amp;D tax credits they've already earned."
+      footTag: "Capital for UK innovators, advanced against the R&amp;D tax credits they've already earned.",
+      howH2: "From claim to cash,<br>in three steps.",
+      s1h: "Send the claim", s1m: "Under 30 minutes",
+      s2h: "See the terms", s2d: "A facility offer against your expected credit, with every cost stated on one page — no sliding scales.", s2m: "Funding within 24 hours",
+      s3h: "Draw down and build", s3m: "Repaid when HMRC pays",
+      consH2: "Your clients' claims can work harder, sooner.",
+      faqH2: "Asked often, answered plainly.",
+      sectionOrder: ['.proof','#how','#consultants','#timing','.van','#faq']
     }
   };
 
@@ -575,7 +617,7 @@
     currentCountry = code;
     document.title = d.title;
     document.documentElement.lang = d.lang;
-    var htmlKeys = ['eyebrow','h1','heroP','claimLabel','claimVal','availVal','repaySrc','pf3b','howSub','s1d','s3d','timingH2','timingSub','legend2','chartNote','consKicker','consSub','faq1a','faq2q','faq2a','faq6a','footTag'];
+    var htmlKeys = ['eyebrow','h1','heroP','claimLabel','claimVal','availVal','repaySrc','pf3b','howSub','s1d','s3d','timingH2','timingSub','legend2','chartNote','consKicker','consSub','faq1a','faq2q','faq2a','faq6a','footTag','howH2','s1h','s1m','s2h','s2d','s2m','s3h','s3m','consH2','faqH2'];
     htmlKeys.forEach(function(k){
       var el = document.getElementById('t-' + k);
       if (el) el.innerHTML = d[k];
@@ -586,6 +628,12 @@
     });
     var chartSvg = document.getElementById('t-chartSvg');
     if (chartSvg) chartSvg.setAttribute('aria-label', d.chartAria);
+    document.body.className = 'v-' + code;
+    var footerEl = document.querySelector('footer');
+    (d.sectionOrder || []).forEach(function(sel){
+      var el = document.querySelector(sel);
+      if (el && footerEl) document.body.insertBefore(el, footerEl);
+    });
     document.querySelectorAll('.flag-btn').forEach(function(b){
       b.classList.toggle('active', b.getAttribute('data-country') === code);
     });
