@@ -41,6 +41,12 @@
   .btn-solid:hover{background:var(--accent-deep);}
   .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--white);}
   .btn-ghost:hover{border-color:var(--ink-40);}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .flags{display:flex;gap:6px;}
+  .flag-btn{display:flex;align-items:center;justify-content:center;padding:3px;border:1px solid var(--line);border-radius:6px;background:var(--white);cursor:pointer;opacity:.55;transition:opacity .15s,border-color .15s;}
+  .flag-btn svg{display:block;border-radius:2px;}
+  .flag-btn:hover{opacity:.85;}
+  .flag-btn.active{opacity:1;border-color:var(--accent);box-shadow:0 0 0 2px rgba(47,111,237,.18);}
 
   /* ---------- hero ---------- */
   .hero{position:relative;background:var(--white);border-bottom:1px solid var(--line);overflow:hidden;}
@@ -167,6 +173,14 @@
     .foot{grid-template-columns:1fr 1fr;}
     .nav-links{display:none;}
   }
+  @media(max-width:560px){
+    .wordmark .wm-sub{display:none;}
+    .nav-right{gap:10px;}
+    .flags{gap:4px;}
+    .flag-btn{padding:2px;}
+    .flag-btn svg{width:24px;height:17px;}
+    .nav-right .btn{padding:9px 13px;font-size:13.5px;}
+  }
 </style>
 </head>
 <body>
@@ -183,16 +197,55 @@
       <a href="#faq">FAQ</a>
       <a href="mailto:james@rndfinancing.com">Contact</a>
     </nav>
-    <a class="btn btn-solid" href="#" data-estimate>Get an estimate</a>
+    <div class="nav-right">
+      <div class="flags" role="group" aria-label="Choose your country">
+        <button class="flag-btn" type="button" data-country="ca" aria-label="Canada" title="Canada — SR&amp;ED">
+          <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true">
+            <rect width="28" height="20" fill="#fff"/>
+            <rect width="7" height="20" fill="#d52b1e"/>
+            <rect x="21" width="7" height="20" fill="#d52b1e"/>
+            <polygon fill="#d52b1e" points="14,3.5 15,6.4 17.6,5.8 16.6,8.3 19.2,9.6 16.6,10.9 17.6,13.4 15,12.8 14.35,15.5 13.65,15.5 13,12.8 10.4,13.4 11.4,10.9 8.8,9.6 11.4,8.3 10.4,5.8 13,6.4"/>
+            <rect x="13.65" y="14" width=".7" height="3" fill="#d52b1e"/>
+          </svg>
+        </button>
+        <button class="flag-btn" type="button" data-country="au" aria-label="Australia" title="Australia — R&amp;D Tax Incentive">
+          <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true">
+            <rect width="28" height="20" fill="#00247d"/>
+            <g stroke="#fff" stroke-width="1.6"><path d="M0,0 14,10 M14,0 0,10"/></g>
+            <g stroke="#cf142b" stroke-width=".7"><path d="M0,0 14,10 M14,0 0,10"/></g>
+            <path d="M7,0 V10 M0,5 H14" stroke="#fff" stroke-width="3"/>
+            <path d="M7,0 V10 M0,5 H14" stroke="#cf142b" stroke-width="1.6"/>
+            <g fill="#fff">
+              <path transform="translate(7,15.2) scale(1.5)" d="M0,-1 .26,-.32 1,-.32 .42,.12 .62,.82 0,.4 -.62,.82 -.42,.12 -1,-.32 -.26,-.32Z"/>
+              <path transform="translate(21,3.4) scale(1.1)" d="M0,-1 .26,-.32 1,-.32 .42,.12 .62,.82 0,.4 -.62,.82 -.42,.12 -1,-.32 -.26,-.32Z"/>
+              <path transform="translate(24.6,7.4) scale(1.1)" d="M0,-1 .26,-.32 1,-.32 .42,.12 .62,.82 0,.4 -.62,.82 -.42,.12 -1,-.32 -.26,-.32Z"/>
+              <path transform="translate(17.6,8.8) scale(1.1)" d="M0,-1 .26,-.32 1,-.32 .42,.12 .62,.82 0,.4 -.62,.82 -.42,.12 -1,-.32 -.26,-.32Z"/>
+              <path transform="translate(21,14.8) scale(1.3)" d="M0,-1 .26,-.32 1,-.32 .42,.12 .62,.82 0,.4 -.62,.82 -.42,.12 -1,-.32 -.26,-.32Z"/>
+              <circle cx="23.4" cy="11" r=".65"/>
+            </g>
+          </svg>
+        </button>
+        <button class="flag-btn" type="button" data-country="uk" aria-label="United Kingdom" title="United Kingdom — R&amp;D Tax Relief">
+          <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true">
+            <rect width="28" height="20" fill="#00247d"/>
+            <g stroke="#fff" stroke-width="3.4"><path d="M0,0 28,20 M28,0 0,20"/></g>
+            <g stroke="#cf142b" stroke-width="1.4"><path d="M0,0 28,20 M28,0 0,20"/></g>
+            <path d="M14,0 V20 M0,10 H28" stroke="#fff" stroke-width="6"/>
+            <path d="M14,0 V20 M0,10 H28" stroke="#cf142b" stroke-width="3.4"/>
+          </svg>
+        </button>
+      </div>
+      <a class="btn btn-solid" href="#" data-estimate>Get an estimate</a>
+    </div>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">SR&amp;ED Financing · Canada</div>
-      <h1>Your SR&amp;ED refund, months early.</h1>
-      <p>R&amp;D Financing advances capital against accrued SR&amp;ED claims, so you can keep building while the CRA processes the paperwork. Non-dilutive. Transparent. Fast.</p>
+      <div class="eyebrow" id="t-eyebrow">SR&amp;ED Financing · Canada</div>
+      <h1 id="t-h1">Your SR&amp;ED refund, months early.</h1>
+      <p id="t-heroP">R&amp;D Financing advances capital against accrued SR&amp;ED claims, so you can keep building while the CRA processes the paperwork. Non-dilutive. Transparent. Fast.</p>
       <div class="cta-row">
         <a class="btn btn-solid" href="#" data-estimate>Get an estimate</a>
         <a class="btn btn-ghost" href="#consultants">I'm a consultant</a>
@@ -201,10 +254,10 @@
     <div class="facility" aria-label="Example facility summary">
       <div class="fac-head"><span class="t">Facility summary</span><span class="pill">Active</span></div>
       <div class="fac-body">
-        <div class="fac-row"><span class="k">Accrued SR&amp;ED claim</span><span class="v big" data-placeholder>$412,500</span></div>
+        <div class="fac-row"><span class="k" id="t-claimLabel">Accrued SR&amp;ED claim</span><span class="v big" data-placeholder id="t-claimVal">$412,500</span></div>
         <div class="fac-row"><span class="k">Advance rate</span><span class="v" data-placeholder>80%</span></div>
-        <div class="fac-row"><span class="k">Available today</span><span class="v green" data-placeholder>$330,000</span></div>
-        <div class="fac-row"><span class="k">Repayment source</span><span class="v">CRA refund</span></div>
+        <div class="fac-row"><span class="k">Available today</span><span class="v green" data-placeholder id="t-availVal">$330,000</span></div>
+        <div class="fac-row"><span class="k">Repayment source</span><span class="v" id="t-repaySrc">CRA refund</span></div>
         <div class="fac-row"><span class="k">Equity taken</span><span class="v">None</span></div>
       </div>
       <div class="fac-foot">Illustrative example. Facilities are sized against each claim individually.</div>
@@ -216,7 +269,7 @@
   <div class="wrap">
     <div class="pf"><b data-placeholder>Up to 80%</b><span>of accrued claim value</span></div>
     <div class="pf"><b data-placeholder>24 hours</b><span>to funding</span></div>
-    <div class="pf"><b>$0</b><span>equity or warrants</span></div>
+    <div class="pf"><b id="t-pf3b">$0</b><span>equity or warrants</span></div>
     <div class="pf"><b>Monthly</b><span>drawdowns as claims accrue</span></div>
   </div>
 </div>
@@ -225,11 +278,11 @@
   <div class="wrap">
     <div class="kicker">How it works</div>
     <h2>Three steps between you<br>and your R&amp;D capital.</h2>
-    <p class="sub">A lending process built around the SR&amp;ED calendar — designed with consultants, for their clients.</p>
+    <p class="sub" id="t-howSub">A lending process built around the SR&amp;ED calendar — designed with consultants, for their clients.</p>
     <div class="steps">
       <div class="step">
         <span class="n">01</span>
-        <div><h3>Share your claim</h3><p class="d">Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.</p></div>
+        <div><h3>Share your claim</h3><p class="d" id="t-s1d">Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.</p></div>
         <span class="meta">Typical effort: under 30 minutes</span>
       </div>
       <div class="step">
@@ -239,7 +292,7 @@
       </div>
       <div class="step">
         <span class="n">03</span>
-        <div><h3>Draw down and build</h3><p class="d">Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.</p></div>
+        <div><h3>Draw down and build</h3><p class="d" id="t-s3d">Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.</p></div>
         <span class="meta">Repaid by the refund itself</span>
       </div>
     </div>
@@ -249,25 +302,25 @@
 <section id="timing">
   <div class="wrap">
     <div class="kicker">The timing gap</div>
-    <h2>Cash on day one,<br>not month twenty-two.</h2>
-    <p class="sub">The CRA pays a typical claim around 22 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.</p>
+    <h2 id="t-timingH2">Cash on day one,<br>not month twenty-two.</h2>
+    <p class="sub" id="t-timingSub">The CRA pays a typical claim around 22 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.</p>
     <div class="chart-card">
       <div class="chart-legend">
         <span><i style="background:#2f6fed"></i>With R&amp;D Financing</span>
-        <span><i style="background:#d52b1e"></i>CRA alone</span>
+        <span><i style="background:#d52b1e"></i><span id="t-legend2">CRA alone</span></span>
       </div>
       <div class="chart-scroll">
-      <svg viewBox="0 0 1000 470" font-family="Inter,system-ui,sans-serif" style="width:100%;height:auto;display:block" role="img" aria-label="Cash in hand over time. With R&amp;D Financing, cash builds from month zero to $330,000 by month 12. With the CRA alone, cash stays at zero until about month 22.">
+      <svg id="t-chartSvg" viewBox="0 0 1000 470" font-family="Inter,system-ui,sans-serif" style="width:100%;height:auto;display:block" role="img" aria-label="Cash in hand over time. With R&amp;D Financing, cash builds from month zero to $330,000 by month 12. With the CRA alone, cash stays at zero until about month 22.">
         <line x1="70" y1="60" x2="960" y2="60" stroke="#e3e8ee"></line>
         <line x1="70" y1="135" x2="960" y2="135" stroke="#e3e8ee"></line>
         <line x1="70" y1="210" x2="960" y2="210" stroke="#e3e8ee"></line>
         <line x1="70" y1="285" x2="960" y2="285" stroke="#e3e8ee"></line>
         <line x1="70" y1="360" x2="960" y2="360" stroke="#c6cfd9"></line>
 
-        <text x="62" y="64" text-anchor="end" font-size="12" fill="#5b6b7c">$412,500</text>
-        <text x="62" y="124" text-anchor="end" font-size="12" fill="#2f6fed" font-weight="650">$330,000</text>
-        <text x="62" y="214" text-anchor="end" font-size="12" fill="#5b6b7c">$206,250</text>
-        <text x="62" y="364" text-anchor="end" font-size="12" fill="#5b6b7c">$0</text>
+        <text x="62" y="64" text-anchor="end" font-size="12" fill="#5b6b7c" id="t-y1">$412,500</text>
+        <text x="62" y="124" text-anchor="end" font-size="12" fill="#2f6fed" font-weight="650" id="t-y2">$330,000</text>
+        <text x="62" y="214" text-anchor="end" font-size="12" fill="#5b6b7c" id="t-y3">$206,250</text>
+        <text x="62" y="364" text-anchor="end" font-size="12" fill="#5b6b7c" id="t-y4">$0</text>
 
         <g>
           <line x1="70" y1="60" x2="70" y2="360" stroke="#e3e8ee"></line>
@@ -276,18 +329,18 @@
         </g>
         <g>
           <line x1="515" y1="60" x2="515" y2="360" stroke="#e3e8ee"></line>
-          <text x="515" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600">Month 12</text>
-          <text x="515" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c">Fiscal year ends</text>
+          <text x="515" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600" id="t-m2l">Month 12</text>
+          <text x="515" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c" id="t-m2s">Fiscal year ends</text>
         </g>
         <g>
           <line x1="737" y1="60" x2="737" y2="360" stroke="#e3e8ee"></line>
-          <text x="737" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600">Month 18</text>
-          <text x="737" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c">Claim filed</text>
+          <text x="737" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600" id="t-m3l">Month 18</text>
+          <text x="737" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c" id="t-m3s">Claim filed</text>
         </g>
         <g>
           <line x1="886" y1="60" x2="886" y2="360" stroke="#e3e8ee"></line>
-          <text x="886" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600">Month 22</text>
-          <text x="886" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c">CRA pays out</text>
+          <text x="886" y="386" text-anchor="middle" font-size="12" fill="#0a2540" font-weight="600" id="t-m4l">Month 22</text>
+          <text x="886" y="404" text-anchor="middle" font-size="12" fill="#5b6b7c" id="t-m4s">CRA pays out</text>
         </g>
 
         <path d="M70 360 H886 L893 60 H960" fill="none" stroke="#d52b1e" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path>
@@ -299,7 +352,7 @@
         </g>
         <g>
           <rect x="608" y="316" width="212" height="30" rx="6" fill="#fff" stroke="#e3e8ee"></rect>
-          <text x="714" y="336" text-anchor="middle" font-size="12" fill="#0a2540">CRA alone: $0 for ~22 months</text>
+          <text x="714" y="336" text-anchor="middle" font-size="12" fill="#0a2540" id="t-callout2">CRA alone: $0 for ~22 months</text>
         </g>
 
         <text x="962" y="440" text-anchor="end" font-size="12" fill="#5b6b7c" letter-spacing=".08em">MONTHS WAITING →</text>
@@ -307,7 +360,7 @@
       </svg>
       </div>
       <div class="chart-hint">Scroll the chart sideways to see the full timeline →</div>
-      <div class="chart-note" data-placeholder>Illustrative $412,500 claim at an 80% advance rate. Timeline reflects a typical first-time SR&amp;ED claim; CRA processing varies.</div>
+      <div class="chart-note" data-placeholder id="t-chartNote">Illustrative $412,500 claim at an 80% advance rate. Timeline reflects a typical first-time SR&amp;ED claim; CRA processing varies.</div>
     </div>
   </div>
 </section>
@@ -315,9 +368,9 @@
 <section class="dark" id="consultants">
   <div class="wrap">
     <div>
-      <div class="kicker">For SR&amp;ED consultants</div>
+      <div class="kicker" id="t-consKicker">For SR&amp;ED consultants</div>
       <h2>Your clients' claims are worth more, sooner.</h2>
-      <p class="sub">We work through Canada's SR&amp;ED consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.</p>
+      <p class="sub" id="t-consSub">We work through Canada's SR&amp;ED consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.</p>
       <a class="btn btn-solid" href="mailto:james@rndfinancing.com?subject=Consultant%20partnership">Talk to us about partnering</a>
     </div>
     <div class="terms">
@@ -343,11 +396,11 @@
     <div class="faq">
       <details open>
         <summary>What exactly do you lend against?</summary>
-        <p>Accrued and filed SR&amp;ED claims — the refundable investment tax credit a company has earned through eligible R&amp;D spend. We advance a portion of the expected refund and are repaid when the CRA pays it out.</p>
+        <p id="t-faq1a">Accrued and filed SR&amp;ED claims — the refundable investment tax credit a company has earned through eligible R&amp;D spend. We advance a portion of the expected refund and are repaid when the CRA pays it out.</p>
       </details>
       <details>
-        <summary>What happens if the CRA is slow, or reduces the claim?</summary>
-        <p>CRA timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.</p>
+        <summary id="t-faq2q">What happens if the CRA is slow, or reduces the claim?</summary>
+        <p id="t-faq2a">CRA timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.</p>
       </details>
       <details>
         <summary>What does it cost?</summary>
@@ -363,7 +416,7 @@
       </details>
       <details>
         <summary>Who is behind R&amp;D Financing?</summary>
-        <p>R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Canadian presence through the consultant community. Questions? Email <a href="mailto:james@rndfinancing.com">james@rndfinancing.com</a> — you'll get James, not a ticket queue.</p>
+        <p id="t-faq6a">R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Canadian presence through the consultant community. Questions? Email <a href="mailto:james@rndfinancing.com">james@rndfinancing.com</a> — you'll get James, not a ticket queue.</p>
       </details>
     </div>
   </div>
@@ -377,7 +430,7 @@
           <svg class="mark" viewBox="0 0 30 44" aria-hidden="true" focusable="false"><polygon points="15.15,1 29.15,1 14.85,43 0.85,43" fill="#2f6fed" stroke="#2f6fed" stroke-width="2" stroke-linejoin="round"></polygon></svg>
           <span class="wm">R&amp;D<span class="wm-sub">&nbsp;Financing</span></span>
         </a>
-        <p>Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned.</p>
+        <p id="t-footTag">Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned.</p>
       </div>
       <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#" data-estimate>Get an estimate</a></div>
       <div class="fcol"><b>Partners</b><a href="#consultants">For consultants</a><a href="mailto:james@rndfinancing.com?subject=Consultant%20partnership">Partner with us</a></div>
@@ -413,6 +466,150 @@
 <script>
   var SUPABASE_URL = "https://vizetcmmvqcvssawzxfd.supabase.co";
   var SUPABASE_KEY = "sb_publishable_YcwPEtp1dJb96x5vZ8PyBw_LUsMa52G";
+
+  /* ---------- country switcher ---------- */
+  var COUNTRIES = {
+    ca: {
+      title: "R&D Financing — SR&ED financing for Canadian innovators",
+      lang: "en-CA",
+      eyebrow: "SR&amp;ED Financing · Canada",
+      h1: "Your SR&amp;ED refund, months early.",
+      heroP: "R&amp;D Financing advances capital against accrued SR&amp;ED claims, so you can keep building while the CRA processes the paperwork. Non-dilutive. Transparent. Fast.",
+      claimLabel: "Accrued SR&amp;ED claim",
+      claimVal: "$412,500",
+      availVal: "$330,000",
+      repaySrc: "CRA refund",
+      pf3b: "$0",
+      howSub: "A lending process built around the SR&amp;ED calendar — designed with consultants, for their clients.",
+      s1d: "Send your current or accruing SR&amp;ED claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.",
+      s3d: "Take funds as the claim accrues. When the CRA pays the refund, the refund clears the facility. That's the whole model.",
+      timingH2: "Cash on day one,<br>not month twenty-two.",
+      timingSub: "The CRA pays a typical claim around 22 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.",
+      legend2: "CRA alone",
+      y1: "$412,500", y2: "$330,000", y3: "$206,250", y4: "$0",
+      m2l: "Month 12", m2s: "Fiscal year ends",
+      m3l: "Month 18", m3s: "Claim filed",
+      m4l: "Month 22", m4s: "CRA pays out",
+      callout2: "CRA alone: $0 for ~22 months",
+      chartNote: "Illustrative $412,500 claim at an 80% advance rate. Timeline reflects a typical first-time SR&amp;ED claim; CRA processing varies.",
+      chartAria: "Cash in hand over time. With R&D Financing, cash builds from month zero to $330,000 by month 12. With the CRA alone, cash stays at zero until about month 22.",
+      consKicker: "For SR&amp;ED consultants",
+      consSub: "We work through Canada's SR&amp;ED consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.",
+      faq1a: "Accrued and filed SR&amp;ED claims — the refundable investment tax credit a company has earned through eligible R&amp;D spend. We advance a portion of the expected refund and are repaid when the CRA pays it out.",
+      faq2q: "What happens if the CRA is slow, or reduces the claim?",
+      faq2a: "CRA timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
+      faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Canadian presence through the consultant community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
+      footTag: "Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned."
+    },
+    au: {
+      title: "R&D Financing — R&DTI financing for Australian innovators",
+      lang: "en-AU",
+      eyebrow: "R&amp;DTI Financing · Australia",
+      h1: "Your R&amp;DTI refund, months early.",
+      heroP: "R&amp;D Financing advances capital against accrued R&amp;DTI claims, so you can keep building while the ATO processes the paperwork. Non-dilutive. Transparent. Fast.",
+      claimLabel: "Accrued R&amp;DTI claim",
+      claimVal: "$435,000",
+      availVal: "$348,000",
+      repaySrc: "ATO refund",
+      pf3b: "$0",
+      howSub: "A lending process built around the R&amp;DTI calendar — designed with consultants, for their clients.",
+      s1d: "Send your current or accruing R&amp;DTI claim details. Your consultant can do it on your behalf — it takes minutes, not meetings.",
+      s3d: "Take funds as the claim accrues. When the ATO pays the refund, the refund clears the facility. That's the whole model.",
+      timingH2: "Cash on day one,<br>not month fifteen.",
+      timingSub: "The ATO pays a typical claim around 15 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.",
+      legend2: "ATO alone",
+      y1: "$435,000", y2: "$348,000", y3: "$217,500", y4: "$0",
+      m2l: "Month 12", m2s: "Income year ends",
+      m3l: "Month 14", m3s: "Return lodged",
+      m4l: "Month 15", m4s: "ATO refund lands",
+      callout2: "ATO alone: $0 for ~15 months",
+      chartNote: "Illustrative $435,000 claim at an 80% advance rate, in AUD. Timeline reflects a typical R&amp;DTI claim; registration, lodgment and ATO processing vary.",
+      chartAria: "Cash in hand over time. With R&D Financing, cash builds from month zero to $348,000 by month 12 — an 80% advance on a $435,000 claim. With the ATO alone, cash stays at zero until the refund lands around month 15.",
+      consKicker: "For R&amp;D consultants",
+      consSub: "We work through Australia's R&amp;D consultants, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.",
+      faq1a: "Accrued and lodged R&amp;DTI claims — the refundable tax offset a company has earned through eligible R&amp;D spend. We advance a portion of the expected refund and are repaid when the ATO pays it out.",
+      faq2q: "What happens if the ATO reviews the claim, or reduces it?",
+      faq2a: "Timing risk is low in Australia — once the return is lodged, the ATO typically pays within a few weeks. Eligibility risk is ours to manage: the regime is self-assessed with a later review window, so facilities are sized conservatively against each claim precisely so that a review or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
+      faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our Australian presence through the consultant community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
+      footTag: "Capital for Australian innovators, advanced against the R&amp;DTI refunds they've already earned."
+    },
+    uk: {
+      title: "R&D Financing — R&D tax credit financing for UK innovators",
+      lang: "en-GB",
+      eyebrow: "R&amp;D Tax Relief Financing · United Kingdom",
+      h1: "Your R&amp;D tax credit, months early.",
+      heroP: "R&amp;D Financing advances capital against accrued R&amp;D tax relief claims, so you can keep building while HMRC processes the paperwork. Non-dilutive. Transparent. Fast.",
+      claimLabel: "Accrued R&amp;D claim",
+      claimVal: "£270,000",
+      availVal: "£216,000",
+      repaySrc: "HMRC payment",
+      pf3b: "£0",
+      howSub: "A lending process built around the R&amp;D tax relief calendar — designed with advisers, for their clients.",
+      s1d: "Send your current or accruing R&amp;D claim details. Your adviser can do it on your behalf — it takes minutes, not meetings.",
+      s3d: "Take funds as the claim accrues. When HMRC pays the credit, the payment clears the facility. That's the whole model.",
+      timingH2: "Cash on day one,<br>not month seventeen.",
+      timingSub: "HMRC pays a typical claim around 17 months after your R&amp;D spend begins. We advance against the claim as it accrues, so the money arrives while you're still doing the work.",
+      legend2: "HMRC alone",
+      y1: "£270,000", y2: "£216,000", y3: "£135,000", y4: "£0",
+      m2l: "Month 12", m2s: "Accounting year ends",
+      m3l: "Month 16", m3s: "Claim filed",
+      m4l: "Month 17", m4s: "HMRC pays out",
+      callout2: "HMRC alone: £0 for ~17 months",
+      chartNote: "Illustrative £270,000 claim at an 80% advance rate. Timeline reflects a typical first-time R&amp;D claim; HMRC processing varies.",
+      chartAria: "Cash in hand over time. With R&D Financing, cash builds from month zero to £216,000 by month 12 — an 80% advance on a £270,000 claim. With HMRC alone, cash stays at zero until about month 17.",
+      consKicker: "For R&amp;D advisers",
+      consSub: "We work through the UK's R&amp;D advisers, not around them. You keep the client relationship; we supply the capital that makes bigger, bolder claims viable.",
+      faq1a: "Accrued and filed R&amp;D tax relief claims — the payable credit a company has earned through qualifying R&amp;D spend, under the merged scheme or ERIS. We advance a portion of the expected payment and are repaid when HMRC pays it out.",
+      faq2q: "What happens if HMRC is slow, or opens an enquiry?",
+      faq2a: "HMRC timing risk is ours to manage — that's the product. Facilities are sized conservatively against each claim precisely so that an enquiry or an adjustment doesn't put your company in a hard place. Specific terms are set out plainly in each facility agreement.",
+      faq6a: "R&amp;D Financing is backed by an established international R&amp;D lender with years of experience funding claims like yours. We're building our UK presence through the adviser community. Questions? Email <a href=\"mailto:james@rndfinancing.com\">james@rndfinancing.com</a> — you'll get James, not a ticket queue.",
+      footTag: "Capital for UK innovators, advanced against the R&amp;D tax credits they've already earned."
+    }
+  };
+
+  var currentCountry = 'ca';
+
+  function setCountry(code, updateHash){
+    var d = COUNTRIES[code];
+    if (!d) return;
+    currentCountry = code;
+    document.title = d.title;
+    document.documentElement.lang = d.lang;
+    var htmlKeys = ['eyebrow','h1','heroP','claimLabel','claimVal','availVal','repaySrc','pf3b','howSub','s1d','s3d','timingH2','timingSub','legend2','chartNote','consKicker','consSub','faq1a','faq2q','faq2a','faq6a','footTag'];
+    htmlKeys.forEach(function(k){
+      var el = document.getElementById('t-' + k);
+      if (el) el.innerHTML = d[k];
+    });
+    ['y1','y2','y3','y4','m2l','m2s','m3l','m3s','m4l','m4s','callout2'].forEach(function(k){
+      var el = document.getElementById('t-' + k);
+      if (el) el.textContent = d[k].replace(/&amp;/g, '&');
+    });
+    var chartSvg = document.getElementById('t-chartSvg');
+    if (chartSvg) chartSvg.setAttribute('aria-label', d.chartAria);
+    document.querySelectorAll('.flag-btn').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-country') === code);
+    });
+    try { localStorage.setItem('rndf-country', code); } catch(e){}
+    if (updateHash !== false) {
+      if (code === 'ca') {
+        if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      } else {
+        history.replaceState(null, '', '#' + code);
+      }
+    }
+  }
+
+  document.querySelectorAll('.flag-btn').forEach(function(b){
+    b.addEventListener('click', function(){ setCountry(b.getAttribute('data-country')); });
+  });
+
+  (function initCountry(){
+    var fromHash = (location.hash || '').replace('#','').toLowerCase();
+    var saved = null;
+    try { saved = localStorage.getItem('rndf-country'); } catch(e){}
+    var start = COUNTRIES[fromHash] ? fromHash : (COUNTRIES[saved] ? saved : 'ca');
+    setCountry(start, false);
+  })();
 
   var overlay = document.getElementById('estimate-modal');
   var card = document.getElementById('estimate-card');
@@ -454,7 +651,7 @@
         'Authorization': 'Bearer ' + SUPABASE_KEY,
         'Prefer': 'return=minimal'
       },
-      body: JSON.stringify({ email: email, source: 'rndfinancing.com' })
+      body: JSON.stringify({ email: email, source: 'rndfinancing.com/' + currentCountry })
     }).then(function(res){
       if(!res.ok) throw new Error('insert failed: ' + res.status);
       card.classList.add('done');
