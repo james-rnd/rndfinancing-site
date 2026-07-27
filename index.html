@@ -42,6 +42,9 @@
   .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--white);}
   .btn-ghost:hover{border-color:var(--ink-40);}
   .nav-right{display:flex;align-items:center;gap:18px;}
+  .nav-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--ink-60);white-space:nowrap;}
+  .nav-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  @media(max-width:1150px){.nav-badge{display:none;}}
   .flags{display:flex;gap:6px;}
   .flag-btn{display:flex;align-items:center;justify-content:center;padding:3px;border:1px solid var(--line);border-radius:6px;background:var(--white);cursor:pointer;opacity:.55;transition:opacity .15s,border-color .15s;}
   .flag-btn svg{display:block;border-radius:2px;}
@@ -219,6 +222,7 @@
       <a href="mailto:james@rndfinancing.com">Contact</a>
     </nav>
     <div class="nav-right">
+      <span class="nav-badge">Over $100M in R&amp;D financed since 2023</span>
       <div class="flags" role="group" aria-label="Choose your country">
         <button class="flag-btn" type="button" data-country="ca" aria-label="Canada" title="Canada — SR&amp;ED">
           <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true">
