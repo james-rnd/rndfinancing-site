@@ -27,6 +27,14 @@
   a{color:inherit;}
 
   /* ---------- nav ---------- */
+  .launch-bar{background:var(--ink);color:#fff;font-size:13.5px;}
+  .launch-bar .wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 32px;text-align:center;flex-wrap:wrap;}
+  .launch-bar a{color:#fff;font-weight:650;text-decoration:underline;text-underline-offset:3px;}
+  .lb-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none;animation:lbpulse 2s infinite;}
+  @keyframes lbpulse{0%{box-shadow:0 0 0 0 rgba(14,159,110,.6)}70%{box-shadow:0 0 0 8px rgba(14,159,110,0)}100%{box-shadow:0 0 0 0 rgba(14,159,110,0)}}
+  @media (prefers-reduced-motion:reduce){.lb-dot{animation:none}}
+  @media(max-width:640px){.lb-dot{display:none}.launch-bar .wrap{padding:8px 18px;gap:4px 10px;font-size:13px}}
+  .nav-right .btn{white-space:nowrap;}
   header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .wordmark{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);}
@@ -214,6 +222,8 @@
 </head>
 <body>
 
+<div class="launch-bar" role="note"><div class="wrap"><span class="lb-dot" aria-hidden="true"></span><span id="t-launch">New in Canada: SR&amp;ED financing, without the wait.</span><a href="#" data-estimate>Get an estimate &rarr;</a></div></div>
+
 <header>
   <div class="wrap nav">
     <a class="wordmark" href="#" aria-label="R&amp;D Financing — home">
@@ -298,7 +308,7 @@
 <div class="proof">
   <div class="wrap">
     <div class="pf"><b data-placeholder>Up to 80%</b><span>of accrued claim value</span></div>
-    <div class="pf"><b data-placeholder>24 hours</b><span>to funding</span></div>
+    <div class="pf"><b data-placeholder>Days, not months</b><span>to funding</span></div>
     <div class="pf"><b id="t-pf3b">$0</b><span>equity or warrants</span></div>
     <div class="pf"><b>Monthly</b><span>drawdowns as claims accrue</span></div>
   </div>
@@ -318,7 +328,7 @@
       <div class="step">
         <span class="n">02</span>
         <div><h3 id="t-s2h">Receive terms</h3><p class="d" id="t-s2d">A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.</p></div>
-        <span class="meta" data-placeholder id="t-s2m">Funding within 24 hours</span>
+        <span class="meta" data-placeholder id="t-s2m">Funding in days, not months</span>
       </div>
       <div class="step">
         <span class="n">03</span>
@@ -502,6 +512,7 @@
     ca: {
       title: "R&D Financing — SR&ED financing for Canadian innovators",
       lang: "en-CA",
+      launch: "New in Canada: SR&amp;ED financing, without the wait.",
       eyebrow: "SR&amp;ED Financing · Canada",
       h1: "Your SR&amp;ED refund, months early.",
       heroP: "R&amp;D Financing advances capital against accrued SR&amp;ED claims, so you can keep building while the CRA processes the paperwork. Non-dilutive. Transparent. Fast.",
@@ -532,7 +543,7 @@
       footTag: "Capital for Canadian innovators, advanced against the SR&amp;ED refunds they've already earned.",
       howH2: "Three steps between you<br>and your R&amp;D capital.",
       s1h: "Share your claim", s1m: "Typical effort: under 30 minutes",
-      s2h: "Receive terms", s2d: "A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.", s2m: "Funding within 24 hours",
+      s2h: "Receive terms", s2d: "A facility offer against your expected refund with every cost stated on one page. What you see is what you pay.", s2m: "Funding in days, not months",
       s3h: "Draw down and build", s3m: "Repaid by the refund itself",
       consH2: "Your clients' claims are worth more, sooner.",
       faqH2: "Fair questions, straight answers.",
@@ -541,6 +552,7 @@
     au: {
       title: "R&D Financing — R&D Tax Incentive financing for Australian innovators",
       lang: "en-AU",
+      launch: "New: R&amp;D Tax Incentive financing for Australian innovators.",
       eyebrow: "R&amp;D Tax Incentive · Australia",
       h1: "Your R&amp;DTI refund, without the wait.",
       heroP: "The offset accrues all year — your cash shouldn't arrive a year later. We advance your accruing R&amp;D Tax Incentive refund with monthly drawdowns, repaid when the ATO pays. No equity, no warrants.",
@@ -571,7 +583,7 @@
       footTag: "Capital for Australian innovators, advanced against the R&amp;DTI refunds they've already earned.",
       howH2: "The process,<br>in three moves.",
       s1h: "Show us the claim", s1m: "Typical effort: under 30 minutes",
-      s2h: "Get terms", s2d: "A facility offer against your expected offset, every cost on one page. What you see is what you pay.", s2m: "Funding within 24 hours",
+      s2h: "Get terms", s2d: "A facility offer against your expected offset, every cost on one page. What you see is what you pay.", s2m: "Funding in days, not months",
       s3h: "Draw down monthly", s3m: "Repaid by the ATO refund",
       consH2: "Your clients' offsets are worth more, sooner.",
       faqH2: "Straight answers, no fine print.",
@@ -580,6 +592,7 @@
     uk: {
       title: "R&D Financing — R&D tax credit financing for UK innovators",
       lang: "en-GB",
+      launch: "New: R&amp;D Tax Relief financing for UK innovators.",
       eyebrow: "R&amp;D Tax Relief · United Kingdom",
       h1: "The money your R&amp;D has already earned.",
       heroP: "We advance capital against your accrued R&amp;D tax relief claim — merged scheme or ERIS — so the work funds itself while HMRC does the paperwork. Non-dilutive, with every cost stated up front.",
@@ -610,7 +623,7 @@
       footTag: "Capital for UK innovators, advanced against the R&amp;D tax credits they've already earned.",
       howH2: "From claim to cash,<br>in three steps.",
       s1h: "Send the claim", s1m: "Under 30 minutes",
-      s2h: "See the terms", s2d: "A facility offer against your expected credit, with every cost stated on one page — no sliding scales.", s2m: "Funding within 24 hours",
+      s2h: "See the terms", s2d: "A facility offer against your expected credit, with every cost stated on one page — no sliding scales.", s2m: "Funding in days, not months",
       s3h: "Draw down and build", s3m: "Repaid when HMRC pays",
       consH2: "Your clients' claims can work harder, sooner.",
       faqH2: "Asked often, answered plainly.",
@@ -626,7 +639,7 @@
     currentCountry = code;
     document.title = d.title;
     document.documentElement.lang = d.lang;
-    var htmlKeys = ['eyebrow','h1','heroP','claimLabel','claimVal','availVal','repaySrc','pf3b','howSub','s1d','s3d','timingH2','timingSub','legend2','chartNote','consKicker','consSub','faq1a','faq2q','faq2a','faq6a','footTag','howH2','s1h','s1m','s2h','s2d','s2m','s3h','s3m','consH2','faqH2'];
+    var htmlKeys = ['launch','eyebrow','h1','heroP','claimLabel','claimVal','availVal','repaySrc','pf3b','howSub','s1d','s3d','timingH2','timingSub','legend2','chartNote','consKicker','consSub','faq1a','faq2q','faq2a','faq6a','footTag','howH2','s1h','s1m','s2h','s2d','s2m','s3h','s3m','consH2','faqH2'];
     htmlKeys.forEach(function(k){
       var el = document.getElementById('t-' + k);
       if (el) el.innerHTML = d[k];
