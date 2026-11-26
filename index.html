@@ -2,6 +2,9 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (Google Ads) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18597912570"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18597912570');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>R&amp;D Financing — SR&amp;ED financing for Canadian innovators</title>
 <meta name="description" content="R&amp;D Financing advances capital against accrued SR&ED claims, so Canadian companies can keep building while the CRA processes their refund. Non-dilutive, transparent, fast.">
@@ -725,6 +728,7 @@
     }).then(function(res){
       if(!res.ok) throw new Error('insert failed: ' + res.status);
       card.classList.add('done');
+      try { if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-18597912570/o0a_CIKQncAdEPq_lqRF' }); } catch(_){}
     }).catch(function(){
       errorEl.style.display = 'block';
     }).finally(function(){
